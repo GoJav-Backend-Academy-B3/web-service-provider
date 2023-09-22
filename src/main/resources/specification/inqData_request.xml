@@ -1,0 +1,14 @@
+<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:inq="http://inqdata.wsbeans.iseries/">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<inq:inqdata>
+			<arg0>
+				<ACCTNBR>1002521739</ACCTNBR>
+				<ACCTTYPE>20</ACCTTYPE>
+			</arg0>
+		</inq:inqdata>
+	</soapenv:Body>
+</soapenv:Envelope>
+ 

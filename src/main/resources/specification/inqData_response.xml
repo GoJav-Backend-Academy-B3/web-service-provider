@@ -1,0 +1,33 @@
+<soap:Envelope
+	xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<ns2:inqdataResponse
+			xmlns:ns2="http://inqdata.wsbeans.iseries/">
+			<return>
+				<ACCTNBR>1002521739          </ACCTNBR>
+				<ACCTTYPE>20             </ACCTTYPE>
+				<ADDRESS1>JALAN ISHMASH NOMOR 11                  </ADDRESS1>
+				<ADDRESS2>ST PETERSBUREG                          </ADDRESS2>
+				<ADDRESS3>KOJA                          0000000000</ADDRESS3>
+				<ADDRESS4>MARTAPURA                               </ADDRESS4>
+				<ADDRESS5>WIL. KEPULAUAN SERIBU                   </ADDRESS5>
+				<CIF>0001062020</CIF>
+				<CTCOTHER>KUXXXXXXXXXXXXXXXX                      </CTCOTHER>
+				<DOB>13051988</DOB>
+				<FAXNBR>0000007244621</FAXNBR>
+				<FULLNAME>MICHAEL KALASNIKOVA                                                                                                     </FULLNAME>
+				<HOMEPH>0021007247488</HOMEPH>
+				<IDENTITY>5588888399999999    </IDENTITY>
+				<KEYPARAM></KEYPARAM>
+				<MAIDENNAME>HOOXXXXXXXXXXXXXXXXX          </MAIDENNAME>
+				<MOBILEPH>0081284600217</MOBILEPH>
+				<NPWP>021212121212122</NPWP>
+				<OFFICEPH>0021811913426</OFFICEPH>
+				<POB>JAKARTA                       </POB>
+				<PRIORITY></PRIORITY>
+				<RESP>00</RESP>
+				<ZIPCODE>00000</ZIPCODE>
+			</return>
+		</ns2:inqdataResponse>
+	</soap:Body>
+</soap:Envelope>

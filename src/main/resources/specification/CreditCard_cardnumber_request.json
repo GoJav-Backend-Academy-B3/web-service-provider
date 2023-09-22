@@ -1,0 +1,11 @@
+{
+    "rqHeader": {
+        "service": "listCustomerCIFCardSummaryListInput",
+        "traceID": "ABCDEFHIJKLMNOPQRSTUVWXY7",
+        "channel": "CC",
+        "timestamp": "2023-09-19 15:48:57.821"
+    },
+    "rqBody": {
+        "cust": "4377014000235208" // card_number
+    }
+}

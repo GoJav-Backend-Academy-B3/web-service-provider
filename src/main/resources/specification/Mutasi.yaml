@@ -1,0 +1,129 @@
+swagger: '2.0'
+info:
+  title: ACCTHST APIs
+  description: APIs available for ACCTHST
+  version: 1.0.0
+host: 10.60.60.4:10271
+schemes:
+  - http
+basePath: /web/services/ACCTHST
+tags:
+  - name: ACCTHST APIs
+    description: APIs available for ACCTHST
+definitions:
+  MUTASIDT:
+    type: object
+    properties:
+      TRXDATE:
+        type: string
+        maxLength: 8
+      PSTGDATE:
+        type: string
+        maxLength: 8
+      TRXCODE:
+        type: string
+        maxLength: 4
+      TRXCODEDSC:
+        type: string
+        maxLength: 30
+      DESCRIPTION:
+        type: string
+        maxLength: 120
+      CURR:
+        type: string
+        maxLength: 3
+      TRXAMOUNT:
+        type: string
+        maxLength: 17
+      LCLCCY:
+        type: string
+        maxLength: 3
+      LCLEQUIVAL:
+        type: string
+        maxLength: 17
+      DBCR:
+        type: string
+        maxLength: 1
+      BUYEXCH:
+        type: string
+        maxLength: 15
+      SELLEXCH:
+        type: string
+        maxLength: 15
+      REFERENSI:
+        type: string
+        maxLength: 21
+      CHKBGNBR:
+        type: string
+        maxLength: 9
+      RUNBAL:
+        type: string
+        maxLength: 17
+      EFEKTIF:
+        type: string
+        maxLength: 17
+  ACCTHSTResult:
+    type: object
+    properties:
+      RESP:
+        type: string
+        maxLength: 2
+      MOREDTA:
+        type: string
+        maxLength: 1
+      LASTINDEX:
+        type: string
+        maxLength: 30
+      MUTASI:
+        type: array
+        maxItems: 25
+        items:
+          $ref: '#/definitions/MUTASIDT'
+paths:
+  /ACCTHST/{ACCTNBR}/{ACCTTP}/{STRDATE}/{ENDDATE}/{STRINDEX}:
+    get:
+      tags:
+        - ACCTHST APIs
+      operationId: ACCTHST
+      consumes:
+        - '*/*'
+      produces:
+        - application/json
+      parameters:
+        - name: ACCTNBR
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 20
+        - name: ACCTTP
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 2
+        - name: STRDATE
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 8
+        - name: ENDDATE
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 8
+        - name: STRINDEX
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 30
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/ACCTHSTResult'
+        '500':
+          description: Unexpected exception

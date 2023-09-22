@@ -1,0 +1,156 @@
+swagger: '2.0'
+info:
+  title: creditcard APIs
+  description: APIs available for creditcard
+  version: 1.0.0
+host: 10.126.70.5:10068
+schemes:
+  - http
+basePath: /web/services/creditcard
+tags:
+  - name: creditcard APIs
+    description: APIs available for creditcard
+definitions:
+  rqHeader:
+    type: object
+    properties:
+      service:
+        type: string
+        maxLength: 50
+      traceID:
+        type: string
+        maxLength: 36
+      channel:
+        type: string
+        maxLength: 2
+      timestamp:
+        type: string
+        maxLength: 23
+      listKey:
+        type: string
+        maxLength: 100
+  rqBody:
+    type: object
+    properties:
+      cust:
+        type: string
+        maxLength: 16
+  rsHeaderListDS:
+    type: object
+    properties:
+      rqHeader:
+        $ref: '#/definitions/rqHeader'
+      timeStamp:
+        type: string
+        maxLength: 23
+      status:
+        type: string
+        maxLength: 4
+      statusDesc:
+        type: string
+        maxLength: 70
+      listCount:
+        type: number
+      listKey:
+        type: string
+        maxLength: 100
+  olBodyDS:
+    type: object
+    properties:
+      cardNbr:
+        type: string
+        maxLength: 16
+      cardPrd:
+        type: number
+      cardPrdCurr:
+        type: string
+        maxLength: 3
+      cardPrdType:
+        type: string
+        maxLength: 1
+      cardAplType:
+        type: string
+        maxLength: 1
+      cardSts:
+        type: string
+        maxLength: 1
+      cardBlk:
+        type: string
+        maxLength: 2
+      cardInactiveDt:
+        type: string
+        maxLength: 8
+      cardCrLimit:
+        type: number
+      cardAcStmBal:
+        type: number
+      cardAcPyDueDt:
+        type: string
+        maxLength: 8
+      cardAcPyDueAmt:
+        type: number
+      cardAcCurBal:
+        type: number
+      cardAcAvailCr:
+        type: number
+      cardAcPointBal:
+        type: number
+      cardEmbName:
+        type: string
+        maxLength: 26
+      cardAcLstStmDt:
+        type: string
+        maxLength: 8
+      cardAcLstPyAmt:
+        type: number
+      cardAcLstPyDte:
+        type: string
+        maxLength: 8
+      cardAcCTDPyAmt:
+        type: number
+      cardCustomer:
+        type: string
+        maxLength: 19
+      cardCIF:
+        type: string
+        maxLength: 12
+  listCustomerCIFCardSummaryListInput:
+    type: object
+    properties:
+      rqHeader:
+        $ref: '#/definitions/rqHeader'
+      rqBody:
+        $ref: '#/definitions/rqBody'
+  listCustomerCIFCardSummaryListResult:
+    type: object
+    properties:
+      rsHeader:
+        $ref: '#/definitions/rsHeaderListDS'
+      rsBody:
+        type: array
+        maxItems: 50
+        items:
+          $ref: '#/definitions/olBodyDS'
+paths:
+  /:
+    post:
+      tags:
+        - creditcard APIs
+      operationId: listCustomerCIFCardSummaryList
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/listCustomerCIFCardSummaryListInput'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/listCustomerCIFCardSummaryListResult'
+        '500':
+          description: Unexpected exception

@@ -1,0 +1,80 @@
+<definitions name="INQDATA" targetNamespace="http://inqdata.wsbeans.iseries/">
+	<types>
+		<xs:schema targetNamespace="http://inqdata.wsbeans.iseries/" version="1.0">
+			<xs:element name="inqdata" type="tns:inqdata"/>
+			<xs:element name="inqdataResponse" type="tns:inqdataResponse"/>
+			<xs:complexType name="inqdata">
+				<xs:sequence>
+					<xs:element name="arg0" type="tns:inqdataInput"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="inqdataInput">
+				<xs:sequence>
+					<xs:element name="ACCTNBR" type="xs:string"/>
+					<xs:element name="ACCTTYPE" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="inqdataResponse">
+				<xs:sequence>
+					<xs:element name="return" type="tns:inqdataResult"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="inqdataResult">
+				<xs:sequence>
+					<xs:element name="ACCTNBR" type="xs:string"/>
+					<xs:element name="ACCTTYPE" type="xs:string"/>
+					<xs:element name="ADDRESS1" type="xs:string"/>
+					<xs:element name="ADDRESS2" type="xs:string"/>
+					<xs:element name="ADDRESS3" type="xs:string"/>
+					<xs:element name="ADDRESS4" type="xs:string"/>
+					<xs:element name="ADDRESS5" type="xs:string"/>
+					<xs:element name="CIF" type="xs:string"/>
+					<xs:element name="CTCOTHER" type="xs:string"/>
+					<xs:element name="DOB" type="xs:string"/>
+					<xs:element name="FAXNBR" type="xs:string"/>
+					<xs:element name="FULLNAME" type="xs:string"/>
+					<xs:element name="HOMEPH" type="xs:string"/>
+					<xs:element name="IDENTITY" type="xs:string"/>
+					<xs:element name="KEYPARAM" type="xs:string"/>
+					<xs:element name="MAIDENNAME" type="xs:string"/>
+					<xs:element name="MOBILEPH" type="xs:string"/>
+					<xs:element name="NPWP" type="xs:string"/>
+					<xs:element name="OFFICEPH" type="xs:string"/>
+					<xs:element name="POB" type="xs:string"/>
+					<xs:element name="PRIORITY" type="xs:string"/>
+					<xs:element name="RESP" type="xs:string"/>
+					<xs:element name="ZIPCODE" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</types>
+	<message name="inqdataResponse">
+		<part element="tns:inqdataResponse" name="parameters"></part>
+	</message>
+	<message name="inqdata">
+		<part element="tns:inqdata" name="parameters"></part>
+	</message>
+	<portType name="INQDATAServices">
+		<operation name="inqdata">
+			<input message="tns:inqdata" wsam:Action="http://inqdata.wsbeans.iseries/INQDATAServices/inqdataRequest"></input>
+			<output message="tns:inqdataResponse" wsam:Action="http://inqdata.wsbeans.iseries/INQDATAServices/inqdataResponse"></output>
+		</operation>
+	</portType>
+	<binding name="INQDATAServicesPortBinding" type="tns:INQDATAServices">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="inqdata">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="INQDATA">
+		<port binding="tns:INQDATAServicesPortBinding" name="INQDATAServicesPort">
+			<soap:address location="http://10.60.60.4:10271/web/services/INQDATAService/INQDATA"/>
+		</port>
+	</service>
+</definitions>

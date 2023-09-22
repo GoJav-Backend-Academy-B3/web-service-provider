@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  title: INQACCT APIs
+  description: APIs available for INQACCT
+  version: 1.0.0
+host: 10.60.60.4:10271
+schemes:
+  - http
+basePath: /web/services/INQACCT
+tags:
+  - name: INQACCT APIs
+    description: APIs available for INQACCT
+definitions:
+  DATAACT:
+    type: object
+    properties:
+      ACCOUNTNBR:
+        type: string
+        maxLength: 20
+      PRODUCTNAME:
+        type: string
+        maxLength: 40
+      PRODUCTTP:
+        type: string
+        maxLength: 12
+      CURR:
+        type: string
+        maxLength: 3
+      PRIMARY:
+        type: string
+        maxLength: 1
+      ACCTSTAT:
+        type: string
+        maxLength: 1
+      ATMCARD:
+        type: string
+        maxLength: 16
+  INQACCTResult:
+    type: object
+    properties:
+      COUNT:
+        type: string
+        maxLength: 2
+      RESP:
+        type: string
+        maxLength: 2
+      DATARAW:
+        type: array
+        maxItems: 50
+        items:
+          $ref: '#/definitions/DATAACT'
+paths:
+  /INQACCT/{cifnbr}:
+    get:
+      tags:
+        - INQACCT APIs
+      operationId: INQACCT
+      consumes:
+        - '*/*'
+      produces:
+        - application/json
+      parameters:
+        - name: cifnbr
+          in: path
+          required: true
+          type: string
+          pattern: \d+
+          maxLength: 10
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/INQACCTResult'
+        '500':
+          description: Unexpected exception
