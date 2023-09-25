@@ -1,4 +1,4 @@
-package iseries.wsbeans.inqdata;
+package iseries.wsbeans.inqdata.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +14,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter {
+public class SoapWebServiceConfig extends WsConfigurerAdapter {
     // bean definitions
 
     @Bean
@@ -22,16 +22,17 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean<>(servlet, "/ws/*");
+        return new ServletRegistrationBean<>(servlet, "/soapWS/*");
     }
 
     @Bean(name = "inqdata")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema inqDataSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("InqdataPort");
-        wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://inqdata.wsbeans.iseries/");
         wsdl11Definition.setSchema(inqDataSchema);
+        wsdl11Definition.setLocationUri("/soapWS");
+        wsdl11Definition.setPortTypeName("AccountServicePort");
+        wsdl11Definition.setTargetNamespace("http://inqdata.wsbeans.iseries/");
+
         return wsdl11Definition;
     }
 
