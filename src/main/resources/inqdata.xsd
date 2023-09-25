@@ -2,49 +2,54 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:tns="http://inqdata.wsbeans.iseries/"
            targetNamespace="http://inqdata.wsbeans.iseries/" version="1.0">
+
     <xs:element name="inqdata" type="tns:inqdata"/>
+
     <xs:element name="inqdataResponse" type="tns:inqdataResponse"/>
-    <xs:complexType name="inqdata">
-        <xs:sequence>
-            <xs:element name="arg0" type="tns:inqdataInput"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="inqdataInput">
-        <xs:sequence>
-            <xs:element name="ACCTNBR" type="xs:string"/>
-            <xs:element name="ACCTTYPE" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="inqdataResponse">
-        <xs:sequence>
-            <xs:element name="return" type="tns:inqdataResult"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="inqdataResult">
-        <xs:sequence>
-            <xs:element name="ACCTNBR" type="xs:string"/>
-            <xs:element name="ACCTTYPE" type="xs:string"/>
-            <xs:element name="ADDRESS1" type="xs:string"/>
-            <xs:element name="ADDRESS2" type="xs:string"/>
-            <xs:element name="ADDRESS3" type="xs:string"/>
-            <xs:element name="ADDRESS4" type="xs:string"/>
-            <xs:element name="ADDRESS5" type="xs:string"/>
-            <xs:element name="CIF" type="xs:string"/>
-            <xs:element name="CTCOTHER" type="xs:string"/>
-            <xs:element name="DOB" type="xs:string"/>
-            <xs:element name="FAXNBR" type="xs:string"/>
-            <xs:element name="FULLNAME" type="xs:string"/>
-            <xs:element name="HOMEPH" type="xs:string"/>
-            <xs:element name="IDENTITY" type="xs:string"/>
-            <xs:element name="KEYPARAM" type="xs:string"/>
-            <xs:element name="MAIDENNAME" type="xs:string"/>
-            <xs:element name="MOBILEPH" type="xs:string"/>
-            <xs:element name="NPWP" type="xs:string"/>
-            <xs:element name="OFFICEPH" type="xs:string"/>
-            <xs:element name="POB" type="xs:string"/>
-            <xs:element name="PRIORITY" type="xs:string"/>
-            <xs:element name="RESP" type="xs:string"/>
-            <xs:element name="ZIPCODE" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
+        <xs:complexType name="inqdata">
+            <xs:sequence>
+                <xs:element name="arg0" type="tns:inqdataInput"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="inqdataInput">
+            <xs:sequence>
+                <xs:element name="ACCTNBR" type="xs:string"/>
+                <xs:element name="ACCTTYPE" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="inqdataResponse">
+            <xs:sequence>
+                <xs:element name="return" type="tns:inqdataResult"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="inqdataResult">
+            <xs:sequence>
+                <xs:element name="ACCTNBR" type="xs:string"/>
+                <xs:element name="ACCTTYPE" type="xs:string"/>
+                <xs:element name="ADDRESS1" type="xs:string"/>
+                <xs:element name="ADDRESS2" type="xs:string"/>
+                <xs:element name="ADDRESS3" type="xs:string"/>
+                <xs:element name="ADDRESS4" type="xs:string"/>
+                <xs:element name="ADDRESS5" type="xs:string"/>
+                <xs:element name="CIF" type="xs:string"/>
+                <xs:element name="CTCOTHER" type="xs:string"/>
+                <xs:element name="DOB" type="xs:string"/>
+                <xs:element name="FAXNBR" type="xs:string"/>
+                <xs:element name="FULLNAME" type="xs:string"/>
+                <xs:element name="HOMEPH" type="xs:string"/>
+                <xs:element name="IDENTITY" type="xs:string"/>
+                <xs:element name="KEYPARAM" type="xs:string"/>
+                <xs:element name="MAIDENNAME" type="xs:string"/>
+                <xs:element name="MOBILEPH" type="xs:string"/>
+                <xs:element name="NPWP" type="xs:string"/>
+                <xs:element name="OFFICEPH" type="xs:string"/>
+                <xs:element name="POB" type="xs:string"/>
+                <xs:element name="PRIORITY" type="xs:string"/>
+                <xs:element name="RESP" type="xs:string"/>
+                <xs:element name="ZIPCODE" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
 </xs:schema>
