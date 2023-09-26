@@ -22,14 +22,14 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean<>(servlet, "/soapWS/*");
+        return new ServletRegistrationBean<>(servlet, "/soap/*");
     }
 
     @Bean(name = "inqdata")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema inqDataSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setSchema(inqDataSchema);
-        wsdl11Definition.setLocationUri("/soapWS");
+        wsdl11Definition.setLocationUri("/soap");
         wsdl11Definition.setPortTypeName("AccountServicePort");
         wsdl11Definition.setTargetNamespace("http://inqdata.wsbeans.iseries/");
 
