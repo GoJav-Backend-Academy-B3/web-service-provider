@@ -40,6 +40,4 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
     public XsdSchema inqDataSchema() {
         return new SimpleXsdSchema(new ClassPathResource("inqdata.xsd"));
     }
-
-
 }
